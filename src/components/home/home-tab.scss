@@ -1,0 +1,45 @@
+.home-tab {
+  height: 52px;
+  position: relative;
+
+  .tab-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // overflow-x: hidden;
+
+    .tab-box {
+      flex-shrink: 0;
+      width: 150px;
+      height: 52px;
+      line-height: 52px;
+      padding: 0 16px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+
+      .tab-title {
+        white-space: nowrap;
+        width: 100px;
+        text-align: center;
+        
+      }
+
+      .close {
+        width: 15px;
+        height: 15px;
+        cursor: pointer;
+      }
+    }
+
+    .active {
+      transform: translateX(-2px);
+      color: $blue;
+      // background: $bgBlue;
+      border-top: 3px solid $blue;
+      border-bottom: 1px solid $white;
+    }
+  }
+}

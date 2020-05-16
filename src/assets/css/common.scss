@@ -1,0 +1,155 @@
+html,
+body {
+  font-family: PingFangSC-Regular, sans-serif;
+  font-size: $normalFont;
+  color: $textColor;
+  line-height: 130%;
+  background: $bgColor;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  /* 不予许选中文本 */
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+// 基础字体样式
+.we-title {
+  font-size: $largeFont;
+  color: $titleColor;
+  line-height: 130%;
+}
+
+.we-text {
+  font-size: $normalFont;
+  color: $textColor;
+  line-height: 130%;
+}
+
+.we-tip {
+  font-size: $smallFont;
+  color: $tipColor;
+  line-height: 130%;
+}
+
+// 1-6行显示，多出部分以省略号...显示
+.we-line-1,
+.we-line-2,
+.we-line-3,
+.we-line-4,
+.we-line-5,
+.we-line-6 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+}
+
+.we-line-1 {
+  -webkit-line-clamp: 1;
+}
+
+.we-line-2 {
+  -webkit-line-clamp: 2;
+}
+
+.we-line-3 {
+  -webkit-line-clamp: 3;
+}
+
+.we-line-4 {
+  -webkit-line-clamp: 4;
+}
+
+.we-line-5 {
+  -webkit-line-clamp: 5;
+}
+
+.we-line-6 {
+  -webkit-line-clamp: 6;
+}
+
+// 清除浮动
+.we-clear-float:before,
+.we-clear-float:after {
+  content: '';
+  display: table;
+}
+
+.we-clear-float {
+  clear: both;
+}
+
+.we-clear-float {
+  zoom: 1;
+}
+
+.we-padding {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.we-pointer {
+  cursor: pointer;
+}
+
+.we-relative {
+  position: relative;
+}
+
+.we-scroll-y,
+.we-scroll-y-0 {
+  overflow-y: auto !important;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 4px;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 53%, 0.4);
+  }
+
+  &:hover::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 53%, 0.1);
+  }
+}
+
+.we-scroll-y-0::-webkit-scrollbar {
+  width: 0;
+}
+
+.we-scroll-x {
+  overflow-x: auto !important;
+  overflow-y: hidden;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 4px;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: hsla(0, 0%, 53%, 0.4);
+  }
+
+  &:hover::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 53%, 0.1);
+  }
+}
+

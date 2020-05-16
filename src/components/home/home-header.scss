@@ -1,0 +1,85 @@
+.home-header {
+  width: 100%;
+  background: rgb(49, 130, 211);
+  position: relative;
+
+  .header-box {
+    padding: 10px 60px 10px 40px;
+    box-sizing: border-box;
+  }
+
+  .left-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .right {
+    z-index: 9;
+  }
+
+  .right-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50px;
+    border: 1px solid rgb(219, 234, 253);
+  }
+
+  .header-bg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 400px;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 120px;
+      width: 400px;
+    }
+  }
+
+  .main-nav {
+    overflow-y: hidden;
+    overflow-x: auto;
+    transition: all .4s;
+    height: 46px;
+
+    .nav-item {
+      display: flex;
+      justify-content: center;
+      width: 120px;
+
+      span {
+        height: 46px;
+        line-height: 46px;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .active {
+        border-bottom: 3px solid $white;
+      }
+    }
+  }
+
+  .main-nav-active {
+    height: 0;
+  }
+
+  .icon_arrow {
+    position: absolute;
+    right: 12px;
+    bottom: 15px;
+    width: 22px;
+    height: 22px;
+    z-index: 9;
+    transition: all .4s;
+  }
+
+  .icon_arrow_active {
+    transform: rotate(180deg);
+  }
+}

@@ -1,0 +1,41 @@
+// flex 布局
+.we-flex-ai,
+.we-flex-jc,
+.we-flex-ai-jc,
+.we-flex-jc-ai,
+.we-flex-column,
+.we-flex-wrap,
+.we-flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.we-flex-ai { // 垂直居中
+  align-items: center;
+}
+
+.we-flex-jc { // 两端对齐
+  justify-content: space-between;
+}
+
+.we-flex-ai-jc,
+.we-flex-jc-ai { // 两端对齐与垂直居中
+  align-items: center;
+  justify-content: space-between;
+}
+
+.we-flex-column {
+  flex-direction: column;
+}
+
+.we-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.we-nowrap {
+  white-space: nowrap;
+}
+
+.we-flex-1 {
+  flex: 1;
+}

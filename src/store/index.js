@@ -1,15 +1,25 @@
+/**
+ * 除了公共仓储 本地缓存数据有
+ * userInfo 用户信息
+ * isAuth token信息
+ *  */
+
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import userInfo from './modules/userInfo'
+import routeInclude from './modules/routeInclude'
+
 Vue.use(Vuex)
 
+const debug = process.env.NODE_ENV !== 'production'
+
 export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
   modules: {
-  }
+    userInfo,
+    routeInclude
+  },
+  strict: debug,
+  // plugins: debug ? [createLogger()] : []
+
 })
