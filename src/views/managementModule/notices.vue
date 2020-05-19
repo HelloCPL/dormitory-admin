@@ -108,7 +108,6 @@ export default {
       dataList: [], // 数据列表
       selectDataList: [], // 选中的数据
       nowDateValue: 0, // 当前时间
-
     }
   },
   created() {

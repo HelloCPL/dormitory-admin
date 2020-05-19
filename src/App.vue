@@ -43,4 +43,8 @@ export default {
     padding-right: 0;
   }
 }
+
+.el-tooltip__popper {
+  max-width: 800px !important;
+}
 </style>

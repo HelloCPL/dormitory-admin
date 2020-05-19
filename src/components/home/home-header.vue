@@ -69,8 +69,9 @@ export default {
     // 仅测试用
     async onTest() {
       let params = {
-        // ids: '17,18,19,20',
-        id: 16,
+        // ids: '10,11,12,20',
+        id: 2,
+        // checkTime: 158937490999,
         // startTime: 158937490999,
         // endTime: 1589374919999,
         // isPublic: 0,
@@ -78,17 +79,30 @@ export default {
         // sort: 22,
         // type: 3,
         // desc: '描述5555',
-        // content: '<p>内容1111</p>',
+        // content: '内容1111',
+        // title: '标题',
+        // scope: 5,
         // remark: '说明555',
         // url: 'tr7oy1587543841731.jpg',
         // fileUrl: 'tr7oy1587543841731.jpg',
         // keyword: '大',
         // timeStatus: 0,
         // isTop: 1
-        type: '4'
+        // type: 3,
+        // pageSize: 2,
+        // keyword: '桌子',
+        // dorBuildingId: 1,
+        // dorRoomId: 2,
+        status: 3,
+        repairTime: 158937490999,
+        repairWorker: '张的',
+        // type: '1,2'
+        // replyStatus: 2,
+        // replyContent: '内容sdfsd',
+        // remark: '备注说明',
         // pageSize: 2
       }
-      let res = await this.$http.post('/management/images/detail', params)
+      let res = await this.$http.post('/doraffair/repair/edit', params)
       console.log(res)
     }
   }

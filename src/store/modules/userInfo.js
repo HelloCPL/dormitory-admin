@@ -4,9 +4,9 @@
 
 let _ = require('lodash')
 // 获取缓存 token
-let _isAuth = localStorage.getItem('isAuth')
+let _isAuth = sessionStorage.getItem('isAuth')
 // 获取缓存用户信息
-let _userInfo = localStorage.getItem('userInfo')
+let _userInfo = sessionStorage.getItem('userInfo')
 if (_userInfo) {
   try {
     let obj = JSON.parse(_userInfo)
@@ -32,18 +32,19 @@ let menus = [{
     routeName: 'dormitoryModule',
     power: 'admin:dormitoryModule',
     status: 1,
-    module: [{
-        title: '宿舍缴费',
-        routeName: 'dorPayment',
-        power: 'admin:dormitoryModule:dorPayment',
-        status: 0
-      },
-      {
-        title: '缴费汇总',
-        routeName: 'dorPaymentCalculate',
-        power: 'admin:dormitoryModule:dorPaymentCalculate',
-        status: 0
-      },
+    module: [
+      // {
+      //   title: '宿舍缴费',
+      //   routeName: 'dorPayment',
+      //   power: 'admin:dormitoryModule:dorPayment',
+      //   status: 0
+      // },
+      // {
+      //   title: '缴费汇总',
+      //   routeName: 'dorPaymentCalculate',
+      //   power: 'admin:dormitoryModule:dorPaymentCalculate',
+      //   status: 0
+      // },
       {
         title: '宿舍报修',
         routeName: 'dorRepair',
@@ -63,19 +64,7 @@ let menus = [{
         status: 0
       },
       {
-        title: '宿舍评优',
-        routeName: 'dorAssess',
-        power: 'admin:dormitoryModule:dorAssess',
-        status: 0
-      },
-      {
-        title: '宿舍违纪',
-        routeName: 'dorPunish',
-        power: 'admin:dormitoryModule:dorPunish',
-        status: 0
-      },
-      {
-        title: '卫生检查',
+        title: '宿舍检查',
         routeName: 'dorCheck',
         power: 'admin:dormitoryModule:dorCheck',
         status: 0

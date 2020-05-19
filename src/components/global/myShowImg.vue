@@ -17,10 +17,10 @@
         <div class="we-border-1 we-margin-right-10 we-margin-bottom-10 we-padding-5 img-box" @mouseenter="acitve = index"
           @mouseleave="acitve = null" :key="index">
           <img :src="item.fullName" alt="" class="we-width-100pc">
-          <div class="cover-box" v-if="acitve === index">
+          <div class="cover-box" v-if="acitve === index && (!noPreview || !noDelete)">
             <img src="@img/icon_magnify.png" alt="" class="we-width-18 we-height-18 we-pointer we-margin-right-10"
-              @click="previewImg(item.fullName)">
-            <img src="@img/icon_delete.png" alt="" class="we-width-18 we-height-18 we-pointer" @click="deleteImg(item.shortName, 2, index)">
+              @click="previewImg(item.fullName)" v-if="!noPreview">
+            <img src="@img/icon_delete.png" alt="" class="we-width-18 we-height-18 we-pointer" @click="deleteImg(item.shortName, 2, index)" v-if="!noDelete">
           </div>
         </div>
       </template>
@@ -38,6 +38,14 @@ export default {
     value: {
       type: [Object, Array],
       default: null
+    },
+    noPreview: { // 不需放大功能
+      type: Boolean,
+      default: false,
+    },
+    noDelete: {// 不需删除功能
+      type: Boolean,
+      default: false,
     }
   },
   data() {

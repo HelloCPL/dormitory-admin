@@ -47,32 +47,32 @@ const dormitoryRoute = [
     meta: {
       title: '投诉与建议'
     }
-  },
-  // 宿舍评优页面
+  }, 
+  // 宿舍投诉与建议页面
   {
-    path: 'dorAssess',
-    name: 'dorAssess',
-    component: () => import('@views/dormitoryModule/dorAssess'),
+    path: 'dorSuggestEdit',
+    name: 'dorSuggestEdit',
+    component: () => import('@views/dormitoryModule/dorSuggestEdit'),
     meta: {
-      title: '宿舍评优'
+      title: '投诉与建议审核'
     }
   },
-  // 宿舍违纪页面
-  {
-    path: 'dorPunish',
-    name: 'dorPunish',
-    component: () => import('@views/dormitoryModule/dorPunish'),
-    meta: {
-      title: '宿舍违纪'
-    }
-  },
-  // 宿舍卫生检查页面
+  // 宿舍检查页面
   {
     path: 'dorCheck',
     name: 'dorCheck',
     component: () => import('@views/dormitoryModule/dorCheck'),
     meta: {
-      title: '卫生检查'
+      title: '宿舍检查'
+    }
+  },
+  // 宿舍检查新增
+  {
+    path: 'dorCheckAdd',
+    name: 'dorCheckAdd',
+    component: () => import('@views/dormitoryModule/dorCheckAdd'),
+    meta: {
+      title: '新增宿舍检查'
     }
   },
   // 学生个人申请页面

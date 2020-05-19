@@ -56,7 +56,7 @@ export default {
                 this.setUserInfo(res.data)
                 // 本地缓存
                 let userInfo = JSON.stringify(res.data)
-                localStorage.setItem('userInfo', userInfo)
+                sessionStorage.setItem('userInfo', userInfo)
                 // 获取 token
                 this.$http.post('/token/generate', { id: res.data.id })
                   .then(res2 => {
@@ -66,7 +66,7 @@ export default {
                         message: '登录成功'
                       })
                       this.setIsAuth(res2.data)
-                      localStorage.setItem('isAuth', res2.data)
+                      sessionStorage.setItem('isAuth', res2.data)
                       this.$router.push({
                         name: 'welcome'
                       })
