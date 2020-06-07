@@ -37,6 +37,15 @@ export default {
     }
   },
   created() {
+    // console.log('appCodeName:' , navigator.appCodeName)
+    // console.log('appName:' , navigator.appName)
+    // console.log('appVersion:' , navigator.appVersion)
+    // console.log('platform:' , navigator.platform)
+    // console.log('userAgent:' , navigator.userAgent)
+    // console.log('width:' , screen.width)
+    // console.log('height:' , screen.height)
+    // console.log('availWidth:' , screen.availWidth)
+    // console.log('availHeight:' , screen.availHeight)
     console.log(this.$config)
   },
   methods: {

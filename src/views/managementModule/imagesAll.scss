@@ -1,0 +1,31 @@
+.water-full-box {
+  position: relative;
+  height: 220px;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+
+  img {
+    max-height: 100%;
+  }
+
+  &-word {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: all .5s;
+    height: 0px;
+    overflow: hidden;
+    width: 100%;
+    background: -ms-linear-gradient(rgba(0, 0, 0, .05), rgba(0, 0, 0, .5));
+    background: -moz-linear-gradient(rgba(0, 0, 0, .05), rgba(0, 0, 0, .5));
+    background: -webkit-gradient(rgba(0, 0, 0, .05), rgba(0, 0, 0, .5));
+    background: -webkit-linear-gradient(rgba(0, 0, 0, .05), rgba(0, 0, 0, .5));
+    background: -o-linear-gradient(rgba(0, 0, 0, .05), rgba(0, 0, 0, .5));
+    background: linear-gradient(rgba(0, 0, 0, .05), rgba(0, 0, 0, .5));
+  }
+
+  &:hover .water-full-box-word {
+    height: 36px;
+  }
+}

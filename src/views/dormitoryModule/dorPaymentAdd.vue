@@ -2,8 +2,24 @@
   <div class="we-flex-column we-width-100pc we-height-100pc">
     <div class="we-flex-1 we-scroll-y we-padding">
       <el-form ref="formName" :rules="rules" :model="dataInfo" label-position="top" label-width="80px" class="we-flex-wrap form-wrapper">
-        <el-form-item label="标题" prop="title" class="we-margin-right-20 full-box">
-          <el-input v-model="dataInfo.title" placeholder="请输入标题" clearable></el-input>
+        <el-form-item label="缴费标题" prop="title" class="we-margin-right-20 full-box">
+          <el-input v-model="dataInfo.title" placeholder="请输入缴费标题" clearable></el-input>
+        </el-form-item>
+        <el-form-item label="缴费内容" prop="content" class="we-margin-right-20 full-box">
+          <el-input v-model="dataInfo.content" type="textarea" placeholder="请输入缴费内容" clearable></el-input>
+        </el-form-item>
+        <el-form-item label="金额" prop="price" class="we-width-220 we-margin-right-20">
+          <el-input v-model="dataInfo.price" type="number" placeholder="请输入金额" clearable></el-input>
+        </el-form-item>
+        <el-form-item label="缴费开始时间" prop="startTime" class="we-width-220 we-margin-right-20">
+          <el-date-picker v-model="dataInfo.startTime" type="datetime" placeholder="选择检查开始时间" format="yyyy-MM-dd"
+            value-format="timestamp">
+          </el-date-picker>
+        </el-form-item>
+        <el-form-item label="缴费结束时间" prop="endTime" class="we-width-220 we-margin-right-20">
+          <el-date-picker v-model="dataInfo.endTime" type="datetime" placeholder="选择检查结束时间" format="yyyy-MM-dd"
+            value-format="timestamp">
+          </el-date-picker>
         </el-form-item>
         <el-form-item label="所属宿舍栋" prop="dorBuildingId" class="we-width-220 we-margin-right-20">
           <el-select v-model="dataInfo.dorBuildingId" filterable remote clearable placeholder="请输入选择" :loading="loading"
@@ -19,40 +35,9 @@
             </el-option>
           </el-select>
         </el-form-item>
-        <el-form-item label="检查类型" prop="type" class="we-width-220 we-margin-right-20">
-          <el-select v-model="dataInfo.type" clearable placeholder="请选择">
-            <el-option v-for="item in filterData.typeList" :key="item.id" :label="item.name" :value="item.id">
-            </el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="检查时间" prop="checkTime" class="we-width-220 we-margin-right-20">
-          <el-date-picker v-model="dataInfo.checkTime" type="datetime" placeholder="选择检查时间" format="yyyy-MM-dd HH:mm"
-            value-format="timestamp">
-          </el-date-picker>
-        </el-form-item>
-        <el-form-item label="检查开始时间" prop="startTime" class="we-width-220 we-margin-right-20">
-          <el-date-picker v-model="dataInfo.startTime" type="datetime" placeholder="选择检查开始时间" format="yyyy-MM-dd"
-            value-format="timestamp">
-          </el-date-picker>
-        </el-form-item>
-        <el-form-item label="检查结束时间" prop="endTime" class="we-width-220 we-margin-right-20">
-          <el-date-picker v-model="dataInfo.endTime" type="datetime" placeholder="选择检查结束时间" format="yyyy-MM-dd"
-            value-format="timestamp">
-          </el-date-picker>
-        </el-form-item>
-        <el-form-item label="评价等级" prop="scope" class="we-width-220 we-margin-right-20">
-          <el-select v-model="dataInfo.scope" clearable placeholder="请选择">
-            <el-option v-for="item in filterData.scopeList" :key="item.id" :label="item.name" :value="item.id">
-            </el-option>
-          </el-select>
-        </el-form-item>
-        <el-form-item label="检查内容" prop="content" class="we-margin-right-20 full-box">
-          <el-input v-model="dataInfo.content" type="textarea" placeholder="请输入检查内容" clearable></el-input>
-        </el-form-item>
         <el-form-item label="备注说明" prop="remark" class="we-margin-right-20 full-box">
           <el-input v-model="dataInfo.remark" type="textarea" placeholder="请输入备注说明" clearable></el-input>
         </el-form-item>
-
       </el-form>
     </div>
     <!-- 确定按钮 -->
@@ -65,7 +50,7 @@
 
 <script>
 export default {
-  name: 'dorCheckAdd',
+  name: 'dorPaymentAdd',
   data() {
     // 自定义校验开始时间
     var checkStartTime = (rule, value, callback) => {
@@ -92,32 +77,20 @@ export default {
     return {
       dataInfo: {
         title: '',
-        dorBuildingId: null,
-        dorRoomId: null,
-        type: '',
-        checkTime: null,
+        content: '',
+        price: null,
         startTime: null,
         endTime: null,
-        scope: null,
-        content: '',
+        dorBuildingId: null,
+        dorRoomId: null,
         remark: ''
-
       },
       rules: {
         title: [
-          { required: true, message: '请输入标题', trigger: 'blur' }
+          { required: true, message: '请输入缴费标题', trigger: 'blur' }
         ],
-        dorBuildingId: [
-          { required: true, message: '请选择所属宿舍栋', trigger: 'change' }
-        ],
-        dorRoomId: [
-          { required: true, message: '请选择宿舍房间', trigger: 'change' }
-        ],
-        type: [
-          { required: true, message: '请选择检查类型', trigger: 'change' }
-        ],
-        checkTime: [
-          { required: true, message: '请选择检查时间', trigger: 'change' }
+        price: [
+          { required: true, message: '请输入金额', trigger: 'blur' }
         ],
         startTime: [
           { required: true, message: '请选择检查开始时间', trigger: 'change' },
@@ -127,27 +100,22 @@ export default {
           { required: true, message: '请选择检查结束时间', trigger: 'change' },
           { validator: checkEndTime, trigger: 'blur' }
         ],
-        scope: [
-          { required: true, message: '请选择评价等级', trigger: 'change' }
+        dorBuildingId: [
+          { required: true, message: '请选择所属宿舍栋', trigger: 'change' }
         ],
-        content: [
-          { required: true, message: '请输入检查内容', trigger: 'blur' }
+        dorRoomId: [
+          { required: true, message: '请选择宿舍房间', trigger: 'change' }
         ],
       },
       filterData: {
         dorBuildingList: [], // 宿舍栋列表
         dorRoomList: [], // 宿舍栋列表
-        typeList: [{ id: 1, name: '评优' }, { id: 2, name: '违纪' }, { id: 3, name: '卫生检查' }],
-        scopeList: [{ id: 1, name: '非常差' }, { id: 2, name: '差' }, { id: 3, name: '合格' }, { id: 4, name: '良好' }, { id: 5, name: '优秀' }]
       },
       loading: false,
+
     }
   },
   created() {
-    this.filterMethodBuilding()
-  },
-  activated() {
-    Object.assign(this.$data, this.$options.data())
     this.filterMethodBuilding()
   },
   methods: {
@@ -188,9 +156,16 @@ export default {
 
     // 确定
     onSubmit() {
-      this.$refs.formName.validate((valid) => {
+      this.$refs.formName.validate(async (valid) => {
         if (valid) {
-          this.onAdd()
+          let res = await this.$http.post('/doraffair/payment/add', this.dataInfo)
+          if (res.errorCode === 0) {
+            this.$message({
+              type: 'success',
+              message: '提交成功'
+            })
+            this.routerBack()
+          }
         } else {
           this.$message('请输入必填项')
           return false
@@ -198,26 +173,15 @@ export default {
       });
     },
 
-    // 新增
-    async onAdd() {
-      let res = await this.$http.post('/doraffair/check/add', this.dataInfo)
-      if (res.errorCode === 0) {
-        this.$message({
-          type: 'success',
-          message: '提交成功'
-        })
-        this.routerBack()
-      }
-    },
-
     // 取消
     onCancel() {
       this.routerBack()
     }
-
   }
 }
 </script>
+
+
 
 <style lang="scss" scoped>
 .form-wrapper {

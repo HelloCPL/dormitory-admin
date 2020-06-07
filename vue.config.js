@@ -1,3 +1,13 @@
+let baseUrl = ''
+switch (process.env.NODE_ENV) {
+  case 'development':
+    baseUrl = 'http://localhost:3000'
+    break
+  case 'production':
+    baseUrl = 'https://www.chenpeiliang/ajsj'
+    break
+}
+
 const path = require('path');
 
 function resolve(dir) {
@@ -10,7 +20,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000'
+        target: baseUrl
       },
     }
   },
@@ -34,5 +44,5 @@ module.exports = {
       }
     }
   }
-  
+
 }

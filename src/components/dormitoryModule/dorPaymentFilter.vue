@@ -20,7 +20,7 @@
               </el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="处理状态" class="we-width-300 we-margin-right-20">
+          <el-form-item label="支付状态" class="we-width-300 we-margin-right-20">
             <el-select v-model="dataInfo.status" clearable placeholder="请选择">
               <el-option v-for="item in filterData.statusList" :key="item.id" :label="item.name" :value="item.id">
               </el-option>
@@ -28,7 +28,7 @@
           </el-form-item>
         </el-form>
       </div>
-
+      
       <template slot="button">
         <div class="we-padding">
           <el-button type="primary" @click="onConfirm">搜索</el-button>
@@ -47,13 +47,13 @@ export default {
         keyword: '',
         dorBuildingId: null,
         dorRoomId: null,
-        status: null, // 展示状态
+        status: null, // 评价等级
 
       },
       filterData: {
         optionsBuilding: [], // 宿舍栋选择列表
         optionsRoom: [], // 宿舍房间选择列表
-        statusList: [{ id: 1, name: '待审核' }, { id: 2, name: '待处理' }, { id: 3, name: '已处理' }, { id: 0, name: '审核不通过' }]
+        statusList: [{ id: 1, name: '待支付' }, { id: 2, name: '已支付' }, { id: 3, name: '已线下支付' }, { id: 0, name: '已取消' }]
       },
       loading: false,
     }

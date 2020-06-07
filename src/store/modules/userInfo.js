@@ -33,12 +33,12 @@ let menus = [{
     power: 'admin:dormitoryModule',
     status: 1,
     module: [
-      // {
-      //   title: '宿舍缴费',
-      //   routeName: 'dorPayment',
-      //   power: 'admin:dormitoryModule:dorPayment',
-      //   status: 0
-      // },
+      {
+        title: '宿舍缴费',
+        routeName: 'dorPayment',
+        power: 'admin:dormitoryModule:dorPayment',
+        status: 0
+      },
       // {
       //   title: '缴费汇总',
       //   routeName: 'dorPaymentCalculate',

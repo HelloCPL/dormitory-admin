@@ -9,6 +9,7 @@ import {
   message
 }
 from '@js/interaction'
+import router from '@/router/index'
 
 // 处理token加密
 function _encode(isAuth) {
@@ -46,6 +47,9 @@ axios.interceptors.response.use(res => {
       message({
         type: 'error',
         message: '令牌失效'
+      })
+      router.replace({
+        name: 'login'
       })
     } else {
       let msg = '服务器发生错误'

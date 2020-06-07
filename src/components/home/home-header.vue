@@ -70,7 +70,8 @@ export default {
     async onTest() {
       let params = {
         // ids: '10,11,12,20',
-        id: 2,
+        // id: 6,
+        // keyCode: 1,
         // checkTime: 158937490999,
         // startTime: 158937490999,
         // endTime: 1589374919999,
@@ -81,6 +82,7 @@ export default {
         // desc: '描述5555',
         // content: '内容1111',
         // title: '标题',
+        // price: 123.12,
         // scope: 5,
         // remark: '说明555',
         // url: 'tr7oy1587543841731.jpg',
@@ -92,17 +94,17 @@ export default {
         // pageSize: 2,
         // keyword: '桌子',
         // dorBuildingId: 1,
-        // dorRoomId: 2,
-        status: 3,
-        repairTime: 158937490999,
-        repairWorker: '张的',
+        // dorRoomId: 1,
+        // status: 0,
+        // repairTime: 158937490999,
+        // repairWorker: '张的',
         // type: '1,2'
         // replyStatus: 2,
         // replyContent: '内容sdfsd',
         // remark: '备注说明',
         // pageSize: 2
       }
-      let res = await this.$http.post('/doraffair/repair/edit', params)
+      let res = await this.$http.post('/doraffair/payment/list', params)
       console.log(res)
     }
   }

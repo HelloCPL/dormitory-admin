@@ -3,13 +3,22 @@
  */
 
 const dormitoryRoute = [
-  // 宿舍缴费页面
+  // 宿舍缴费列表页面
   {
     path: 'dorPayment',
     name: 'dorPayment',
     component: () => import('@views/dormitoryModule/dorPayment'),
     meta: {
       title: '宿舍缴费'
+    }
+  },
+  // 添加宿舍缴费页面
+  {
+    path: 'dorPaymentAdd',
+    name: 'dorPaymentAdd',
+    component: () => import('@views/dormitoryModule/dorPaymentAdd'),
+    meta: {
+      title: '新增宿舍缴费'
     }
   },
   //宿舍 缴费汇总页面

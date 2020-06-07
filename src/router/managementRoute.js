@@ -12,6 +12,15 @@ const managementRoute = [
       title: '图片管理'
     }
   },
+  // 所有图片
+  {
+    path: 'imagesAll',
+    name: 'imagesAll',
+    component: () => import('@views/managementModule/imagesAll'),
+    meta: {
+      title: '所有图片'
+    }
+  },
   // 图片管理 新增与编辑
   {
     path: 'imagesEdit',

@@ -20,13 +20,14 @@
           <div class="cover-box" v-if="acitve === index && (!noPreview || !noDelete)">
             <img src="@img/icon_magnify.png" alt="" class="we-width-18 we-height-18 we-pointer we-margin-right-10"
               @click="previewImg(item.fullName)" v-if="!noPreview">
-            <img src="@img/icon_delete.png" alt="" class="we-width-18 we-height-18 we-pointer" @click="deleteImg(item.shortName, 2, index)" v-if="!noDelete">
+            <img src="@img/icon_delete.png" alt="" class="we-width-18 we-height-18 we-pointer" @click="deleteImg(item.shortName, 2, index)"
+              v-if="!noDelete">
           </div>
         </div>
       </template>
     </div>
     <!-- 图片预览 -->
-    <el-dialog :visible.sync="dialogVisible">
+    <el-dialog :visible.sync="dialogVisible" title="图片预览">
       <img width="100%" :src="dialogImageUrl" alt="">
     </el-dialog>
   </div>

@@ -1,13 +1,19 @@
 <template>
   <div class="we-flex-column we-width-100pc we-height-100pc">
     <!-- 筛选条件 -->
-    <div class="we-scroll-y filter-box">
+    <div class="we-scroll-y">
       <images-filter @confirm="onConfirmFilter" />
     </div>
     <!-- 按钮 -->
-    <div class="we-width-100pc we-border-bottom-1 we-padding">
-      <el-button type="primary" @click="onAdd">增加</el-button>
-      <el-button @click="onDelete">删除</el-button>
+    <div class="we-width-100pc we-border-bottom-1 we-padding we-flex-jc-ai">
+      <div>
+        <el-button type="primary" @click="onAdd">增加</el-button>
+        <el-button @click="onDelete">删除</el-button>
+      </div>
+      <div>
+        <el-button @click="toImagesAll" type="text">查看所有图片</el-button>
+        <img src="" alt="">
+      </div>
     </div>
     <!-- 列表渲染 -->
     <div class="we-flex-1 we-scroll-y">
@@ -15,8 +21,7 @@
         <el-table-column type="selection" width="80"></el-table-column>
         <el-table-column label="图片" width="80">
           <template slot-scope="scope">
-            <img :src="scope.row.url.fullName" alt="" v-if="scope.row.url && scope.row.url.fullName"
-              class="notices-img" />
+            <img :src="scope.row.url.fullName" alt="" v-if="scope.row.url && scope.row.url.fullName" class="notices-img" />
           </template>
         </el-table-column>
         <el-table-column label="类型" width="120">
@@ -192,15 +197,19 @@ export default {
       }
     },
 
+    // 查看所有图片
+    toImagesAll() {
+      this.routerPush({
+        name: 'imagesAll'
+      })
+    },
+
 
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.filter-box {
-  max-height: 210px;
-}
 .notices-img {
   width: 60px;
   border-radius: 4px;

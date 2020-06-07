@@ -1,0 +1,29 @@
+.filter-box {
+  overflow: hidden;
+
+  .arrow-img {
+    position: relative;
+    top: 2px;
+    transform: rotate(0deg);
+    transition: all 0.3s;
+  }
+
+  .arrow-img-pack-up {
+    transform: rotate(180deg);
+  }
+}
+
+.pack-up-box {
+  position: relative;
+
+  &::before {
+    content: "";
+    height: 20px;
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+  }
+}

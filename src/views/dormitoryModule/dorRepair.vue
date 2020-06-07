@@ -1,7 +1,7 @@
 <template>
   <div class="we-flex-column we-width-100pc we-height-100pc">
     <!-- 筛选条件 -->
-    <div class="we-scroll-y filter-box">
+    <div class="we-scroll-y">
       <dor-repair-filter @confirm="onConfirmFilter" />
     </div>
    <!-- 列表渲染 -->
@@ -175,9 +175,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.filter-box {
-  max-height: 210px;
-}
-</style>

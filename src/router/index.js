@@ -64,6 +64,7 @@ router.beforeEach((to, from, next) => {
 // routerPush 默认 缓存
 // routerReplace 默认替换后缓存
 // routerBack 默认 销毁 from 组件
+// routerClose 关闭 组件
 // noKeepAlive 为 true 不需要缓存
 
 router.afterEach((to, from) => {
