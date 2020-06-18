@@ -30,11 +30,11 @@ export default {
     }
   },
   mounted() {
-    this.judgeFilterBox()
     window.onresize = () => {
       this.isMore = false
       this.judgeFilterBox()
     }
+    this.judgeFilterBox()
   },
   methods: {
     judgeFilterBox() {

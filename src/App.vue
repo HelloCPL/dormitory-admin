@@ -6,6 +6,15 @@
 
 <script>
 export default {
+  created() {
+    console.log('全局初始化')
+    let currrentRoute = sessionStorage.getItem('currentRoute')
+    try {
+      currrentRoute = JSON.parse(currrentRoute)
+    } catch (e) { }
+    console.log(123, currrentRoute)
+
+  },
   methods: {
 
   },
