@@ -57,6 +57,7 @@
 import dorCheckFilter from '@com/dormitoryModule/dorCheckFilter'
 export default {
   name: 'dorCheck',
+  inject: ['newTab', 'tabdeleteMethods'],
   components: {
     dorCheckFilter
   },
@@ -132,8 +133,9 @@ export default {
 
     // 增加
     onAdd() {
-      this.routerPush({
-        name: 'dorCheckAdd'
+      this.newTab({
+        name: "新增数据检查",
+        to: "dorCheckAdd",
       })
     },
 

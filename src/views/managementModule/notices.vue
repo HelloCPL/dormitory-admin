@@ -90,6 +90,7 @@
 import noticesFilter from '@com/managementModule/noticesFilter'
 export default {
   name: 'notices',
+  inject: ['newTab', 'tabdeleteMethods'],
   components: {
     noticesFilter
   },
@@ -167,19 +168,21 @@ export default {
 
     // 增加
     onAdd() {
-      this.routerPush({
-        name: 'noticesEdit'
-      })
+      this.newTab({
+        name: "新增资讯公告",
+        to: "noticesEdit"
+      });
     },
 
     // 编辑
     onEdit(item) {
-      this.routerPush({
-        name: 'noticesEdit',
+      this.newTab({
+        name: "编辑资讯公告",
+        to: "noticesEdit",
         params: {
           id: item.id
         }
-      })
+      });
     },
 
     // 删除

@@ -69,6 +69,7 @@
 import dorPaymentFilter from '@com/dormitoryModule/dorPaymentFilter'
 export default {
   name: 'dorPayment',
+  inject: ['newTab', 'tabdeleteMethods'],
   components: {
     dorPaymentFilter
   },
@@ -137,8 +138,9 @@ export default {
 
     // 增加
     onAdd() {
-      this.routerPush({
-        name: 'dorPaymentAdd'
+      this.newTab({
+        name: "新增宿舍缴费",
+        to: "dorPaymentAdd"
       })
     },
 

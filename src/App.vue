@@ -7,28 +7,8 @@
 <script>
 export default {
   created() {
-    console.log('全局初始化')
-    let currrentRoute = sessionStorage.getItem('currentRoute')
-    try {
-      currrentRoute = JSON.parse(currrentRoute)
-    } catch (e) { }
-    console.log(123, currrentRoute)
-
+    
   },
-  methods: {
-
-  },
-  // watch: {
-  //   // 全局监听路由变化
-  //   '$route': {
-  //     handler(val, oldVal) {
-  //       if (val === oldVal) return
-  //       console.log('路由', val)
-  //     },
-  //     deep: true,
-  //     // immediate: true
-  //   }
-  // }
 }
 </script>
 

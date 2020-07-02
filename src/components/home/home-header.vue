@@ -1,9 +1,9 @@
 <template>
   <div class="we-color-white home-header">
     <!-- 背景图片 -->
-    <div class="header-bg">
+    <!-- <div class="header-bg">
       <img src="@img/icon_home_bg.png" alt="">
-    </div>
+    </div> -->
     <!-- 头部信息 -->
     <div class="we-flex-jc-ai header-box">
       <div class="we-flex-ai">
@@ -12,27 +12,28 @@
       </div>
       <div class="we-flex-ai right">
         <img src="@img/avatar.png" alt="" class="right-icon">
-        <span class="we-font-14 we-padding-left-10 we-pointer" @click="onTest">梁婉鸣</span>
-        <span class="we-font-14 we-padding-left-10 we-pointer">退出</span>
+        <span class="we-font-14 we-padding-left-10 we-pointer">梁婉鸣</span>
+        <span class="we-font-14 we-padding-left-10 we-pointer" @click="toExit">退出</span>
       </div>
     </div>
     <!-- 主体导航 -->
     <div class="we-flex-ai main-nav" :class="{'main-nav-active': !show}">
       <template v-for="(item, index) in menus">
         <div class="nav-item" :key="index">
-          <span class="we-pointer" :class="{'active': active == index}" @click="setActive(index, item)">{{item.title}}</span>
+          <span class="we-pointer" :class="{'active': item.selected}" @click="homeMenuClick(item)">{{item.name}}</span>
         </div>
       </template>
     </div>
 
     <!-- 收起或展开 -->
-    <img src="@img/icon_arrow_white.png" :title="show ? '收起' : '展开'" class="we-pointer icon_arrow" :class="{'icon_arrow_active': !show}" @click="show = !show" />
+    <img src="@img/icon_arrow_white.png" :title="show ? '收起' : '展开'" class="we-pointer icon_arrow" :class="{'icon_arrow_active': !show}"
+      @click="show = !show" />
 
   </div>
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -41,72 +42,43 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['menus'])
+    ...mapGetters(['menus', 'homeMenuId'])
   },
   methods: {
-    ...mapActions(['initRoute', 'setSubMenus']),
+    ...mapActions(['setHomeMenuId', 'changeMenus', 'setCurrentMenu']),
 
-    // 设置点击项 并跳转
-    setActive(index, item) {
-      if(index === this.active) return
-      // 清除二级路由
-      this.initRoute()
-      this.active = index
-      this.setSubMenus(index)
-      let routeName = item.module[0]['routeName']      
-      let status = item.status
-      if(status) {
-        this.routerPush({
-          name: routeName
-        })
-      } else {
-        this.$router.push({
-          name: routeName
-        })
-      }
+    // 点击菜单
+    homeMenuClick(item) {
+      if (this.homeMenuId === item.menuId) return
+      this.setHomeMenuId(item.menuId)
+      this.changeMenus(item.menuId)
+      this.setCurrentMenu(item)
+      this.$emit('clickMenu', item)
     },
 
-    // 仅测试用
-    async onTest() {
-      let params = {
-        // ids: '10,11,12,20',
-        // id: 6,
-        // keyCode: 1,
-        // checkTime: 158937490999,
-        // startTime: 158937490999,
-        // endTime: 1589374919999,
-        // isPublic: 0,
-        // isTop: 1,
-        // sort: 22,
-        // type: 3,
-        // desc: '描述5555',
-        // content: '内容1111',
-        // title: '标题',
-        // price: 123.12,
-        // scope: 5,
-        // remark: '说明555',
-        // url: 'tr7oy1587543841731.jpg',
-        // fileUrl: 'tr7oy1587543841731.jpg',
-        // keyword: '大',
-        // timeStatus: 0,
-        // isTop: 1
-        // type: 3,
-        // pageSize: 2,
-        // keyword: '桌子',
-        // dorBuildingId: 1,
-        // dorRoomId: 1,
-        // status: 0,
-        // repairTime: 158937490999,
-        // repairWorker: '张的',
-        // type: '1,2'
-        // replyStatus: 2,
-        // replyContent: '内容sdfsd',
-        // remark: '备注说明',
-        // pageSize: 2
-      }
-      let res = await this.$http.post('/doraffair/payment/list', params)
-      console.log(res)
-    }
+    // 退出系统
+    toExit() {
+      this.$confirm('是否退出当前系统？', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        console.log('已取消')
+        // 先删除vuex
+        // this.initUserInfo()
+        // this.initMenusInfo()
+        // // 再删除sessionStorage
+        // sessionStorage.clear()
+        // let url = `${CONFIG.domainName}/_tif_logout?returnUrl=${CONFIG.host}`
+        // window.location.href = url
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        })
+      })
+    },
+
   }
 }
 </script>

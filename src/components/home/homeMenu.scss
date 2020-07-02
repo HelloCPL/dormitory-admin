@@ -1,0 +1,36 @@
+.home-menu {
+  width: 248px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
+
+  .menu-item {
+    padding: 18px 68px 18px 32px;
+    box-sizing: border-box;
+    border-right: 4px solid transparent;
+  }
+
+  .menu-item-active {
+    border-right: 4px solid $blue;
+    background-color: $bgBlueLight;
+    color: $blue;
+  }
+
+  .menu-img {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    width: 24px;
+    height: 24px;
+    transform: translateY(-50%) rotate(0deg);
+    transition-duration: .4s;
+  }
+
+  .menu-img-active {
+    transform: translateY(-50%) rotate(-180deg);
+    transition-duration: .4s;
+  }
+
+  .menu-item-submenu {
+    padding-left: 56px;
+    padding-right: 60px;
+  }
+}

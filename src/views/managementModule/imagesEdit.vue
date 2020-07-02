@@ -61,6 +61,7 @@
 import config from '@/config/config'
 export default {
   name: 'imagesEdit',
+  inject: ['newTab', 'tabdeleteMethods'],
   data() {
     // 自定义校验开始时间
     var checkStartTime = (rule, value, callback) => {
@@ -185,7 +186,7 @@ export default {
           type: 'success',
           message: '提交成功'
         })
-        this.routerBack()
+        this.onCancel()
       }
     },
 
@@ -202,13 +203,13 @@ export default {
           type: 'success',
           message: '提交成功'
         })
-        this.routerBack()
+        this.onCancel()
       }
     },
 
     // 取消
     onCancel() {
-      this.routerBack()
+      this.tabdeleteMethods({ to: 'imagesEdit' })
     }
   },
   watch: {

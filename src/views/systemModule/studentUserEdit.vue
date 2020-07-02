@@ -92,6 +92,7 @@
 import config from '@/config/config'
 export default {
   name: 'studentUserEdit',
+  inject: ['newTab', 'tabdeleteMethods'],
   data() {
     // 自定义校验电话格式
     var checkPhone = (rule, value, callback) => {
@@ -291,7 +292,7 @@ export default {
           type: 'success',
           message: '提交成功'
         })
-        this.routerBack()
+        this.onCancel()
       }
     },
 
@@ -308,13 +309,13 @@ export default {
           type: 'success',
           message: '提交成功'
         })
-        this.routerBack()
+        this.onCancel()
       }
     },
 
     // 取消
     onCancel() {
-      this.routerBack()
+      this.tabdeleteMethods({ to: 'studentUserEdit' })
     }
   }
 }

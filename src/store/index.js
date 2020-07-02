@@ -8,7 +8,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import userInfo from './modules/userInfo'
-import routeInclude from './modules/routeInclude'
+import menusInfo from './modules/menusInfo'
 
 Vue.use(Vuex)
 
@@ -17,7 +17,7 @@ const debug = process.env.NODE_ENV !== 'production'
 export default new Vuex.Store({
   modules: {
     userInfo,
-    routeInclude
+    menusInfo
   },
   strict: debug,
   // plugins: debug ? [createLogger()] : []

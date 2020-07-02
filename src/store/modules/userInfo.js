@@ -161,15 +161,15 @@ let menus = [{
 ]
 
 const state = {
-  menus: menus, // 菜单
-  subMenus: [], // 子菜单
+  // menus: menus, // 菜单
+  // subMenus: [], // 子菜单
   userInfo: _userInfo || {},
   isAuth: _isAuth || null
 }
 
 const getters = {
-  menus: state => state.menus,
-  subMenus: state => state.subMenus,
+  // menus: state => state.menus,
+  // subMenus: state => state.subMenus,
   userInfo: state => state.userInfo,
   isAuth: state => state.isAuth,
 }

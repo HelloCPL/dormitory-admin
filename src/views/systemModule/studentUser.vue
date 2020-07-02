@@ -67,6 +67,7 @@
 import studentUserFilter from '@com/systemModule/studentUserFilter'
 export default {
   name: 'studentUser',
+  inject: ['newTab', 'tabdeleteMethods'],
   components: {
     studentUserFilter
   },
@@ -126,18 +127,18 @@ export default {
 
     // 增加
     onAdd() {
-      this.routerPush({
-        name: 'studentUserEdit'
+      this.newTab({
+        name: "新增学生信息",
+        to: "studentUserEdit"
       })
     },
 
     // 编辑
     onEdit(item) {
-      this.routerPush({
-        name: 'studentUserEdit',
-        params: {
-          id: item.id
-        }
+      this.newTab({
+        name: "编辑学生信息",
+        to: "studentUserEdit",
+        params: { id: item.id }
       })
     },
 

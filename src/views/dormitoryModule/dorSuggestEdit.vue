@@ -40,6 +40,7 @@
 <script>
 export default {
   name: 'dorSuggestEdit',
+  inject: ['newTab', 'tabdeleteMethods'],
   data() {
 
     return {
@@ -108,20 +109,19 @@ export default {
         replyContent: this.dataInfo.replyContent,
         remark: this.dataInfo.remark,
       }
-      console.log(params)
       let res = await this.$http.post('/doraffair/suggestion/edit', params)
       if (res.errorCode === 0) {
         this.$message({
           type: 'success',
           message: '提交成功'
         })
-        this.routerBack()
+        this.onCancel()
       }
     },
 
     // 取消
     onCancel() {
-      this.routerBack()
+      this.tabdeleteMethods({ to: 'dorSuggestEdit' })
     }
   }
 }

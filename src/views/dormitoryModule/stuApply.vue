@@ -136,7 +136,6 @@ export default {
     async onEdit(item, status) {
       if (status == 1) {
         this.editData = item
-        console.log(item)
         this.showEdit = true
       } else if (status == 2) {
         let params = {

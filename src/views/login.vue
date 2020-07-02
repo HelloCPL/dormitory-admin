@@ -18,6 +18,7 @@
 
 <script>
 import { mapActions } from 'vuex'
+import { menus } from '@js/menus'
 export default {
   name: 'login',
   data() {
@@ -36,53 +37,48 @@ export default {
       }
     }
   },
-  created() {
-    // console.log('appCodeName:' , navigator.appCodeName)
-    // console.log('appName:' , navigator.appName)
-    // console.log('appVersion:' , navigator.appVersion)
-    // console.log('platform:' , navigator.platform)
-    // console.log('userAgent:' , navigator.userAgent)
-    // console.log('width:' , screen.width)
-    // console.log('height:' , screen.height)
-    // console.log('availWidth:' , screen.availWidth)
-    // console.log('availHeight:' , screen.availHeight)
-    console.log(this.$config)
-  },
   methods: {
-    ...mapActions(['setIsAuth', 'setUserInfo']),
+    ...mapActions(['setIsAuth', 'setUserInfo', 'setHomeMenuId', 'setMenus']),
 
     // 提交
     submitForm() {
-      this.$refs.ruleForm.validate((valid) => {
+      this.$refs.ruleForm.validate(async (valid) => {
         if (valid) {
           let params = {
             username: this.formLabelAlign.username,
             password: this.$md5(this.formLabelAlign.password + this.$config.salt)
           }
-          this.$http.post('/login', params)
-            .then(res => {
-              if (res.errorCode === 0) {
-                this.setUserInfo(res.data)
-                // 本地缓存
-                let userInfo = JSON.stringify(res.data)
-                sessionStorage.setItem('userInfo', userInfo)
-                // 获取 token
-                this.$http.post('/token/generate', { id: res.data.id })
-                  .then(res2 => {
-                    if (res2.errorCode === 0) {
-                      this.$message({
-                        type: 'success',
-                        message: '登录成功'
-                      })
-                      this.setIsAuth(res2.data)
-                      sessionStorage.setItem('isAuth', res2.data)
-                      this.$router.push({
-                        name: 'welcome'
-                      })
-                    }
-                  })
+          let res = await this.$http.post('/login', params)
+          if (res.errorCode === 0) {
+            this.setUserInfo(res.data)
+            // 本地缓存
+            let userInfo = JSON.stringify(res.data)
+            sessionStorage.setItem('userInfo', userInfo)
+            // 获取 token
+            let res2 = await this.$http.post('/token/generate', { id: res.data.id })
+            if (res2.errorCode === 0) {
+              // 处理菜单
+              let homeMenuId = sessionStorage.getItem('homeMenuId')
+              if (homeMenuId) {
+                this.setHomeMenuId(homeMenuId)
+                this.handlerMenus(menus, homeMenuId)
+              } else {
+                homeMenuId = menus[0]['menuId']
+                this.setHomeMenuId(homeMenuId)
+                this.handlerMenus(menus, homeMenuId)
               }
-            })
+
+              this.$message({
+                type: 'success',
+                message: '登录成功'
+              })
+              this.setIsAuth(res2.data)
+              sessionStorage.setItem('isAuth', res2.data)
+              this.$router.push({
+                name: 'welcome'
+              })
+            }
+          }
         } else {
           this.$message({
             message: '请输入必填项',
@@ -93,6 +89,23 @@ export default {
         }
       });
     },
+
+    // 处理当前选中菜单
+    handlerMenus(menus, homeMenuId) {
+      let flag = false
+      menus.forEach(item => {
+        if (item.menuId === homeMenuId) {
+          item.selected = true
+          flag = true
+        } else {
+          item.selected = false
+        }
+      })
+      if (!flag) menus[0]['selected'] = true
+      this.setMenus(menus)
+      sessionStorage.setItem('menus', JSON.stringify(menus))
+    },
+
   }
 }
 </script>

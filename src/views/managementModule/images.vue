@@ -81,6 +81,7 @@
 import imagesFilter from '@com/managementModule/imagesFilter'
 export default {
   name: 'images',
+  inject: ['newTab', 'tabdeleteMethods'],
   components: {
     imagesFilter
   },
@@ -157,15 +158,17 @@ export default {
 
     // 增加
     onAdd() {
-      this.routerPush({
-        name: 'imagesEdit'
+      this.newTab({
+        name: "新增图片",
+        to: "imagesEdit"
       })
     },
 
     // 编辑
     onEdit(item) {
-      this.routerPush({
-        name: 'imagesEdit',
+      this.newTab({
+        name: "编辑图片",
+        to: "imagesEdit",
         params: {
           id: item.id
         }
@@ -199,8 +202,9 @@ export default {
 
     // 查看所有图片
     toImagesAll() {
-      this.routerPush({
-        name: 'imagesAll'
+      this.newTab({
+        name: "查看所有图片",
+        to: "imagesAll"
       })
     },
 

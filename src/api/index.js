@@ -31,8 +31,6 @@ axios.interceptors.request.use(config => {
   if (isAuth) {
     config.headers.Authorization = _encode(isAuth)
   }
-
-  console.log('config', config)
   return config
 })
 

@@ -55,6 +55,7 @@
 import dorSuggestFilter from '@com/dormitoryModule/dorSuggestFilter'
 export default {
   name: 'dorSuggest',
+  inject: ['newTab', 'tabdeleteMethods'],
   components: {
     dorSuggestFilter,
   },
@@ -97,12 +98,11 @@ export default {
 
     // 编辑
     async onEdit(id) {
-      this.routerPush({
-        name: 'dorSuggestEdit',
-        params: {
-          id
-        }
-      })
+      this.newTab({
+        name: "投诉与建议审核",
+        to: "dorSuggestEdit",
+        params: { id }
+      });
     },
 
     // 筛选条件
