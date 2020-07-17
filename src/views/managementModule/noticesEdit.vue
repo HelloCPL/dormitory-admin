@@ -240,7 +240,7 @@ export default {
 
     // 取消
     onCancel() {
-      this.tabdeleteMethods({ to: 'noticesEdit' })
+      this.tabdeleteMethods({ to: 'noticesEdit', target: 'notices' })
     }
   }
 }

@@ -315,7 +315,7 @@ export default {
 
     // 取消
     onCancel() {
-      this.tabdeleteMethods({ to: 'studentUserEdit' })
+      this.tabdeleteMethods({ to: 'studentUserEdit' , target: 'studentUser'})
     }
   }
 }

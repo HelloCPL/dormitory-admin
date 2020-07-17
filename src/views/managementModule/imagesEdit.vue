@@ -209,7 +209,7 @@ export default {
 
     // 取消
     onCancel() {
-      this.tabdeleteMethods({ to: 'imagesEdit' })
+      this.tabdeleteMethods({ to: 'imagesEdit' , target: 'images'})
     }
   },
   watch: {

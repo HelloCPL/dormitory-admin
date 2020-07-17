@@ -94,7 +94,7 @@ export default {
       this.newTab(item)
     },
 
-    // tab 栏目删除
+    // tab 栏目删除 item 为对象 to 要删除的路由（必填） target 目标路由（非必填，不填默认前一个）
     tabdeleteMethods(item) {
       // 删除缓存
       this.deleteIncludes(item)
@@ -173,13 +173,21 @@ export default {
       if (data.to != this.activeTo) return
       let index = -1
       this.tabMenus.find((item, i) => {
-        if (item.to === data.to) {
-          index = i
-          return true
+        if (data.target) {
+          if (item.to === data.target) {
+            index = i
+            return true
+          }
+        } else {
+          if (item.to === data.to) {
+            index = i
+            return true
+          }
         }
       })
       if (index !== -1) {
-        index = index === 0 ? 1 : index - 1
+        if (!data.target)
+          index = index === 0 ? 1 : index - 1
         let row = this._.cloneDeep(this.tabMenus[index])
         let obj = {
           name: row.to

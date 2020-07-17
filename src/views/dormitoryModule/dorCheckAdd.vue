@@ -213,7 +213,7 @@ export default {
 
     // 取消
     onCancel() {
-      this.tabdeleteMethods({ to: 'dorCheckAdd' })
+      this.tabdeleteMethods({ to: 'dorCheckAdd' , target: 'dorCheck'})
     }
 
   }

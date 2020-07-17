@@ -121,7 +121,7 @@ export default {
 
     // 取消
     onCancel() {
-      this.tabdeleteMethods({ to: 'dorSuggestEdit' })
+      this.tabdeleteMethods({ to: 'dorSuggestEdit' , target: 'dorSuggest'})
     }
   }
 }

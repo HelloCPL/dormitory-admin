@@ -176,7 +176,7 @@ export default {
 
     // 取消
     onCancel() {
-      this.tabdeleteMethods({ to: 'dorPaymentAdd' })
+      this.tabdeleteMethods({ to: 'dorPaymentAdd' , target: 'dorPayment'})
     }
   }
 }
