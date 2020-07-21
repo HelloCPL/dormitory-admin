@@ -1,12 +1,16 @@
-let baseUrl = ''
-switch (process.env.NODE_ENV) {
-  case 'development':
-    baseUrl = 'http://localhost:3000'
-    break
-  case 'production':
-    baseUrl = 'https://www.chenpeiliang/ajsj'
-    break
-}
+// let baseUrl = ''
+// switch (process.env.NODE_ENV) {
+//   case 'development':
+//     baseUrl = 'http://localhost:3000'
+//     // baseUrl = 'http://106.55.153.80:3000'
+//     break
+//   case 'production':
+//     // baseUrl = 'https://www.chenpeiliang/ajsj'
+//     baseUrl = 'http://106.55.153.80:3000'
+//     break
+//   default:
+//     baseUrl = 'http://106.55.153.80:3000'
+// }
 
 const path = require('path');
 
@@ -14,16 +18,16 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/', // 基本路径
+  publicPath: process.env.NODE_ENV === 'production' ? '/lwm' : '/', // 基本路径
   outputDir: 'dist', // 打包输出目录
   lintOnSave: false, // 不校验eslint
-  devServer: {
-    proxy: {
-      '/api': {
-        target: baseUrl
-      },
-    }
-  },
+  // devServer: {
+  //   proxy: {
+  //     '/api': {
+  //       target: baseUrl
+  //     },
+  //   }
+  // },
 
   // webpack配置
   chainWebpack: (config) => { //修改文件引入自定义路径
