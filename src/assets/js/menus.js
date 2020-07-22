@@ -10,70 +10,78 @@ export const menus = [{
     to: 'welcome'
   }, {
     children: [{
-      children: [],
-      menuId: 2,
-      name: '宿舍缴费',
-      parentId: 0,
-      permissions: [],
-      sort: 2,
-      to: 'dorPayment'
-    }, {
-      children: [],
-      menuId: 2,
-      name: '宿舍报修',
-      parentId: 0,
-      permissions: [],
-      sort: 2,
-      to: 'dorRepair'
-    }, {
-      children: [],
-      menuId: 2,
-      name: '宿舍申请',
-      parentId: 0,
-      permissions: [],
-      sort: 2,
-      to: 'dorApply'
-    }, {
-      children: [],
-      menuId: 2,
-      name: '投诉与建议',
-      parentId: 0,
-      permissions: [],
-      sort: 2,
-      to: 'dorSuggest'
-    }, {
-      children: [],
-      menuId: 2,
-      name: '宿舍检查',
-      parentId: 0,
-      permissions: [],
-      sort: 2,
-      to: 'dorCheck'
-    }, {
-      children: [],
-      menuId: 2,
-      name: '学生个人申请',
-      parentId: 0,
-      permissions: [],
-      sort: 2,
-      to: 'stuApply'
-    }, {
-      children: [],
-      menuId: 2,
-      name: '学生宿舍个人物品',
-      parentId: 0,
-      permissions: [],
-      sort: 2,
-      to: 'stuBelongings'
-    }, {
-      children: [],
-      menuId: 2,
-      name: '离返校登记',
-      parentId: 0,
-      permissions: [],
-      sort: 2,
-      to: 'stuLeaveAndReturn'
-    }],
+        children: [],
+        menuId: 2,
+        name: '宿舍缴费',
+        parentId: 0,
+        permissions: [],
+        sort: 2,
+        to: 'dorPayment'
+      },
+      {
+        children: [],
+        menuId: 2,
+        name: '宿舍报修',
+        parentId: 0,
+        permissions: [],
+        sort: 2,
+        to: 'dorRepair'
+      },
+      {
+        children: [],
+        menuId: 2,
+        name: '宿舍申请',
+        parentId: 0,
+        permissions: [],
+        sort: 2,
+        to: 'dorApply'
+      },
+      {
+        children: [],
+        menuId: 2,
+        name: '投诉与建议',
+        parentId: 0,
+        permissions: [],
+        sort: 2,
+        to: 'dorSuggest'
+      },
+      {
+        children: [],
+        menuId: 2,
+        name: '宿舍检查',
+        parentId: 0,
+        permissions: [],
+        sort: 2,
+        to: 'dorCheck'
+      },
+      {
+        children: [],
+        menuId: 2,
+        name: '学生个人申请',
+        parentId: 0,
+        permissions: [],
+        sort: 2,
+        to: 'stuApply'
+      },
+      {
+        children: [],
+        menuId: 2,
+        name: '学生宿舍个人物品',
+        parentId: 0,
+        permissions: [],
+        sort: 2,
+        to: 'stuBelongings'
+      },
+      {
+        children: [],
+        menuId: 2,
+        name: '离返校登记',
+        parentId: 0,
+        permissions: [],
+        sort: 2,
+        to: 'stuLeaveAndReturn'
+      }
+    ],
     menuId: 2,
     name: '宿舍管理',
     parentId: 0,

@@ -45,7 +45,7 @@ export default {
     ...mapGetters(['menus', 'homeMenuId'])
   },
   methods: {
-    ...mapActions(['setHomeMenuId', 'changeMenus', 'setCurrentMenu']),
+    ...mapActions(['setHomeMenuId', 'changeMenus', 'setCurrentMenu', 'resetMenusInfo', 'resetUserInfo']),
 
     // 点击菜单
     homeMenuClick(item) {
@@ -63,18 +63,17 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
-        console.log('已取消')
         // 先删除vuex
-        // this.initUserInfo()
-        // this.initMenusInfo()
+        this.resetMenusInfo()
+        this.resetUserInfo()
         // // 再删除sessionStorage
-        // sessionStorage.clear()
-        // let url = `${CONFIG.domainName}/_tif_logout?returnUrl=${CONFIG.host}`
-        // window.location.href = url
+        sessionStorage.clear()
+        // 刷新页面
+        location.reload()
       }).catch(() => {
         this.$message({
           type: 'info',
-          message: '已取消删除'
+          message: '已取消'
         })
       })
     },

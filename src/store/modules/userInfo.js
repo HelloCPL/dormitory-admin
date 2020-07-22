@@ -16,25 +16,16 @@ if (_userInfo) {
 }
 
 const state = {
-  // menus: menus, // 菜单
-  // subMenus: [], // 子菜单
-  userInfo: _userInfo || {},
-  isAuth: _isAuth || null
+  userInfo: _userInfo || {}, // 用户信息
+  isAuth: _isAuth || null, // token 信息
 }
 
 const getters = {
-  // menus: state => state.menus,
-  // subMenus: state => state.subMenus,
   userInfo: state => state.userInfo,
   isAuth: state => state.isAuth,
 }
 
 const actions = {
-  // setSubMenus({
-  //   commit
-  // }, index) {
-  //   commit('setSubMenus', index)
-  // },
   setUserInfo({
     commit
   }, params) {
@@ -54,10 +45,6 @@ const actions = {
 }
 
 const mutations = {
-  // 'setSubMenus'(state, index) {
-  //   if (state.menus[index] && _.isArray(state.menus[index]['module']))
-  //     state.subMenus = state.menus[index]['module']
-  // },
   'setUserInfo'(state, params) {
     state.userInfo = params
   },

@@ -37,7 +37,7 @@ export default {
   methods: {
     refreshRouter() {
       this.sideMenus = this._.cloneDeep(this.subMenus)
-      if (this.sideMenus.length) {
+      if (this.sideMenus.length) {``
         let routeName = ''
         let item = this.sideMenus[0]
         if (item.children.length) {
