@@ -1,3 +1,7 @@
+// body {
+//   --normalFont: 14px;
+// }
+
 // 基础颜色变量
 $blue: #409EFF;
 $green: #67C23A;
@@ -14,6 +18,9 @@ $bgRed: rgba(238, 105, 105, .1);
 $bgOrange: rgba(230, 162, 60, .1);
 $bgBlueLight: rgba(4, 115, 222, .1); // 浅蓝背景色
 
+$rgbaBg: rgba(0, 0, 0, .3);
+$rgbaBg2: rgba(0, 0, 0, .5);
+
 // 文本颜色变量
 $titleColor: #303133;
 $textColor: #606266;
@@ -21,10 +28,65 @@ $tipColor: #909399;
 $borderColor: #EBEEF5;
 $bgColor: #f9f9f9;
 $bgTable: #EEF1F4;
+$shadowColor: #e6e6e6;
+$colorD9: #d9d9d9;
 
 // 字体大小变量
-$smallerFont: 10px;
-$smallFont: 12px;
-$normalFont: 14px;
-$largeFont: 16px;
-$largerFont: 18px;
+$smallerFont: var(--smallerFont, 10px);
+$smallFont: var(--smallerFont, 12px);
+$normalFont: var(--normalFont, 14px);
+$largeFont: var(--largeFont, 16px);
+$largerFont: var(--largerFont, 18px);
+$font20: var(--font20, 20px);
+$font13: var(--font13, 13px);
+
+// element ui 
+$--font-path: 'fonts' !default;
+$--font-size-base: $normalFont !default;
+$--font-size-small: $font13 !default;
+$--font-size-large: $largerFont !default;
+$--size-base: $normalFont !default;
+$--checkbox-font-size: $normalFont !default;
+$--radio-font-size: $normalFont !default;
+$--select-input-font-size: $normalFont !default;
+$--select-group-font-size: $smallFont !default;
+$--alert-title-font-size: $font13 !default;
+$--alert-description-font-size: $smallFont !default;
+$--alert-close-font-size: $smallFont !default;
+$--alert-close-customed-font-size: $font13 !default;
+$--alert-icon-size: $largeFont !default;
+$--msgbox-error-font-size: $smallFont !default;
+$--msgbox-error-font-size: $smallFont !default;
+$--notification-title-font-size: $largeFont !default;
+$--input-medium-font-size: $normalFont !default;
+$--input-small-font-size: $font13 !default;
+$--input-mini-font-size: $smallFont !default;
+$--button-font-size: $normalFont !default;
+$--button-medium-font-size: $normalFont !default;
+$--button-small-font-size: $normalFont !default;
+$--button-mini-font-size: $normalFont !default;
+$--dialog-font-size: $normalFont !default;
+$--pagination-font-size: $font13 !default;
+$--popover-title-font-size: $largeFont !default;
+$--tooltip-font-size: $smallFont !default;
+$--tag-font-size: $smallFont !default;
+$--badge-font-size: $smallFont !default;
+$--slider-button-size: $largeFont !default;
+$--rate-icon-size: $largerFont !default;
+$--carousel-arrow-font-size: $smallFont !default;
+$--collapse-header-size: $font13 !default;
+$--collapse-content-size: $font13 !default;
+
+.el-table,
+.el-form-item__content,
+.el-button--small,
+.el-select-dropdown__item,
+.el-input__inner,
+.el-form-item__label {
+  font-size: $normalFont !important;
+}
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+@import "~element-ui/packages/theme-chalk/src/index";
+

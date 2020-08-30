@@ -34,7 +34,8 @@ export default {
         password: [
           { required: true, message: '请输入密码', trigger: 'change' },
         ],
-      }
+      },
+      count: 14,
     }
   },
   methods: {

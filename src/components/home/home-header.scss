@@ -1,6 +1,6 @@
 .home-header {
   width: 100%;
-  background: rgb(49, 130, 211);
+  background: $blue;
   position: relative;
 
   .header-box {
@@ -21,24 +21,7 @@
     width: 28px;
     height: 28px;
     border-radius: 50px;
-    border: 1px solid rgb(219, 234, 253);
-  }
-
-  .header-bg {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    width: 400px;
-    overflow: hidden;
-
-    img {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      height: 120px;
-      width: 400px;
-    }
+    border: 1px solid $bgColor;
   }
 
   .main-nav {

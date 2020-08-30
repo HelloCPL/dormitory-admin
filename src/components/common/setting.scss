@@ -1,0 +1,97 @@
+.setting-container {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $rgbaBg;
+  z-index: 99;
+
+  .setting-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 500px;
+    background: $white;
+    border-radius: 2px;
+    box-shadow: 1px 1px 2px $shadowColor;
+  }
+
+  // 头部
+  .header {
+    height: 38px;
+    position: relative;
+
+    .header-setting-word {
+      width: 120px;
+      height: 100%;
+      text-align: center;
+      line-height: 38px;
+    }
+
+    .header-close {
+      position: absolute;
+      top: 11px;
+      right: 20px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  // 主题内容区
+  .wrapper {
+    height: 462px;
+    display: flex;
+
+    .wrapper-left {
+      width: 120px;
+      height: 100%;
+      padding-top: 20px;
+      box-sizing: border-box;
+      border-right: 1px solid $borderColor;
+      position: relative;
+
+      // &::before {
+      //   content: '';
+      //   width: 10px;
+      //   height: calc(100% + 2px);
+      //   position: absolute;
+      //   top: -1px;
+      //   left: 0;
+      //   background: $blue;
+      // }
+
+      // &::after {
+      //   content: '';
+      //   width: calc(100% + 1px);
+      //   height: 10px;
+      //   position: absolute;
+      //   bottom: -2px;
+      //   left: 0;
+      //   background: $blue;
+      // }
+
+      .wrapper-left-word {
+        text-align: center;
+        line-height: 30px;
+      }
+
+      .wrapper-left-active {
+        color: $blue;
+        background: $bgBlue;
+      }
+    }
+
+    .wrapper-right {
+      flex: 1;
+      height: 100%;
+      padding-top: 20px;
+      box-sizing: border-box;
+      border-top: 1px solid $borderColor;
+    }
+  }
+
+}

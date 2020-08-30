@@ -1,19 +1,16 @@
 <template>
   <div class="we-color-white home-header">
-    <!-- 背景图片 -->
-    <!-- <div class="header-bg">
-      <img src="@img/icon_home_bg.png" alt="">
-    </div> -->
     <!-- 头部信息 -->
     <div class="we-flex-jc-ai header-box">
       <div class="we-flex-ai">
-        <img src="@img/icon_user_white.png" alt="" class="left-icon">
-        <span class="we-font-20 we-padding-left-20">广东技术师范大学</span>
+        <!-- <img src="@img/icon_user_white.png" alt="" class="left-icon"> -->
+        <span class="we-font-20">后台管理</span>
       </div>
       <div class="we-flex-ai right">
-        <img src="@img/avatar.png" alt="" class="right-icon">
-        <span class="we-font-14 we-padding-left-10 we-pointer">梁婉鸣</span>
-        <span class="we-font-14 we-padding-left-10 we-pointer" @click="toExit">退出</span>
+        <img :src="userInfo.headImg.fullName" alt="" class="we-font-14 right-icon" v-if="userInfo.headImg && userInfo.headImg.fullName">
+        <img src="@img/avatar.png" alt="" class="we-font-14 right-icon" v-else>
+        <span class="we-padding-left-10">{{userInfo.name}}</span>
+        <span class="we-padding-left-10 we-pointer" @click="toSetting">设置</span>
       </div>
     </div>
     <!-- 主体导航 -->
@@ -34,15 +31,18 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import createComponent from '@js/createComponent'
+import setting from '../common/setting'
 export default {
   data() {
     return {
       active: 0,
       show: true, // 是否展示
+      showSetting: false, // 是否显示设置页面
     }
   },
   computed: {
-    ...mapGetters(['menus', 'homeMenuId'])
+    ...mapGetters(['menus', 'homeMenuId', 'userInfo'])
   },
   methods: {
     ...mapActions(['setHomeMenuId', 'changeMenus', 'setCurrentMenu', 'resetMenusInfo', 'resetUserInfo']),
@@ -54,6 +54,25 @@ export default {
       this.changeMenus(item.menuId)
       this.setCurrentMenu(item)
       this.$emit('clickMenu', item)
+    },
+
+    // 跳转到设置页面
+    toSetting() {
+      let comp = createComponent({
+        name: 'setting',
+        component: setting,
+        props: {
+          userInfo: this.userInfo
+        },
+        single: true
+      })
+      comp.start()
+      comp.$on('removeComponent', () => {
+        comp.remove()
+      })
+      comp.$on('exitSystem', () => {
+        this.toExit()
+      })
     },
 
     // 退出系统

@@ -326,7 +326,7 @@ export default {
   max-width: 960px;
 
   .avatar-box {
-    border: 1px dashed #d9d9d9;
+    border: 1px dashed $colorD9;
     border-radius: 2px;
     overflow: hidden;
     position: absolute;

@@ -4,10 +4,10 @@
   .left-box {
     width: 65%;
     height: 80%;
-    background: #fff;
+    background: $white;
     border: 1px solid $borderColor;
     border-radius: 8px;
-    box-shadow: 2px 2px 5px #e6e6e6;
+    box-shadow: 2px 2px 5px $shadowColor;
     position: absolute;
     left: 5%;
     top: 10%;
@@ -20,10 +20,10 @@
   .right-box {
     width: 230px;
     height: 300px;
-    background: #fff;
+    background: $white;
     border: 1px solid $borderColor;
     border-radius: 8px;
-    box-shadow: 2px 2px 5px #e6e6e6;
+    box-shadow: 2px 2px 5px $shadowColor;
     position: absolute;
     right: 5%;
     top: 10%;

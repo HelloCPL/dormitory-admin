@@ -8,7 +8,8 @@ export const menus = [{
     permissions: [], // 权限
     sort: 1,
     to: 'welcome'
-  }, {
+  }, 
+  {
     children: [{
         children: [],
         menuId: 2,

@@ -55,7 +55,7 @@ export default {
     ...mapGetters(['userInfo'])
   },
   created() {
-    console.log(123, this.userInfo)
+    // console.log(123, this.userInfo)
   }
 }
 </script>

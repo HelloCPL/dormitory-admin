@@ -85,16 +85,16 @@ export default {
       this.dialogImageDesc = item.desc
       switch (item.type) {
         case 1:
-          this.dialogImageTitle = '轮播图预览'
+          this.dialogImageTitle = '轮播图'
           break
         case 2:
-          this.dialogImageTitle = '宿舍相关信息图预览'
+          this.dialogImageTitle = '宿舍相关信息图'
           break
         case 3:
-          this.dialogImageTitle = '宿舍相关信息图预览'
+          this.dialogImageTitle = '宿舍相关信息图'
           break
         case 4:
-          this.dialogImageTitle = '其他图片预览'
+          this.dialogImageTitle = '其他图片'
           break
       }
     },

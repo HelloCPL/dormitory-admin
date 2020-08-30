@@ -49,7 +49,7 @@ export default {
   .el-upload-dragger {
     width: 100%;
     height: 75px;
-    background: #d9d9d9;
+    background: $colorD9;
   }
 }
 </style>

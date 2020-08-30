@@ -7,8 +7,23 @@
 <script>
 export default {
   created() {
-    
+    this.setFontSize()
   },
+
+  methods: {
+    setFontSize() {
+      let fontSizeValue = localStorage.getItem('fontSizeValue')
+      if (fontSizeValue) {
+        fontSizeValue = parseInt(fontSizeValue)
+        document.getElementsByTagName('body')[0].style.setProperty('--smallerFont', fontSizeValue - 4 + 'px')
+        document.getElementsByTagName('body')[0].style.setProperty('--smallFont', fontSizeValue - 2 + 'px')
+        document.getElementsByTagName('body')[0].style.setProperty('--normalFont', fontSizeValue + 'px')
+        document.getElementsByTagName('body')[0].style.setProperty('--largeFont', fontSizeValue + 2 + 'px')
+        document.getElementsByTagName('body')[0].style.setProperty('--largerFont', fontSizeValue + 4 + 'px')
+        document.getElementsByTagName('body')[0].style.setProperty('--font20', fontSizeValue + 6 + 'px')
+      }
+    }
+  }
 }
 </script>
 

@@ -37,7 +37,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: $rgbaBg;
   z-index: 9;
   display: -webkit-flex;
   display: flex;
